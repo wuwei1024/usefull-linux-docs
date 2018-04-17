@@ -1,0 +1,32 @@
+#!/bin/bash
+# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
+#
+# It is highly advisable to create own systemd services or udev rules
+# to run scripts during boot instead of using this file.
+#
+# In contrast to previous versions due to parallel execution during boot
+# this script will NOT be run after all other services.
+#
+# Please note that you must run 'chmod +x /etc/rc.d/rc.local' to ensure
+# that this script will be executed during boot.
+
+touch /var/lock/subsys/local
+
+#set environment in profile such as java,tomcat...
+source /etc/profile
+
+#startup redis cluster
+sh /root/redis_linux/redis-start.sh
+
+#startup spring-boot program
+sh /root/test1/test-start.sh
+sh /root/test2/test-start.sh
+
+#startup mysql
+sh /usr/local/mysql/pid.sh
+
+#startup tomcat
+sh /root/tomcat/apache-tomcat-9.0.7/bin/startup.sh
+sh /root/tomcat/apache-tomcat-9.0.7_2/bin/startup.sh
+
+exit 0

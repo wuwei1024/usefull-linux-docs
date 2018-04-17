@@ -1,0 +1,3 @@
+mysql安装：https://www.cnblogs.com/cz-xjw/p/8006904.html
+
+远程连接：https://www.cnblogs.com/blogforly/p/5997553.html

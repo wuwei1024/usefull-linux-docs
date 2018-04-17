@@ -1,0 +1,30 @@
+﻿一、linux配置Java环境：
+(1) 安装JDK：tar -zxvf jdk-8u161-linux-x64.tar
+(2) 在文件/etc/profile的末尾添加jdk路径
+export JAVA_HOME=/root/java/jdk1.8.0_161
+
+export JRE_HOME=$JAVA_HOME/jre
+
+export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
+
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+
+(3) 配置立即生效
+source /etc/profile
+
+
+二、linux开机启动自动执行某个脚本:
+(1) 编写启动脚本startup.sh
+#!/bin/bash
+export JAVA_HOME=/root/java/jdk1.8.0_161
+
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+nohup java -jar /home/wuwei/MyApp/myapp.jar &
+或者：
+source /etc/profile
+
+nohup java -jar /root/myapp/myapp.jar &
+(2)linux开机之后会执行/etc/rc.local文件中的脚本，所以我们可以直接在/etc/rc.local中添加启动脚本
+把启动脚本的绝对路径加在/etc/rc.local中.

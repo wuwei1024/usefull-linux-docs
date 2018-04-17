@@ -1,0 +1,34 @@
+如何在CentOS 7上安装Nginx
+https://blog.csdn.net/oldguncm/article/details/78855000
+
+Nginx实现tomcat集群进行负载均衡 
+https://www.cnblogs.com/hafiz/p/7233306.html
+
+Nginx反向代理以及负载均衡配置
+https://www.cnblogs.com/Miss-mickey/p/6734831.html
+
+Linux服务器上同时部署多个Tomcat方法介绍
+https://blog.csdn.net/github_38383183/article/details/78608229
+https://blog.csdn.net/u010072512/article/details/51832429
+
+主机不能访问虚拟机中的web服务【解决方案】
+https://blog.csdn.net/sudazf/article/details/50551822
+
+Linux安装MySQL
+https://blog.csdn.net/u012255016/article/details/62222959
+
+
+查看是否安装mysql的命令
+rpm -qa | grep mysql
+然后 逐个使用 rpm -e mysq-* 卸载
+如果出现
+error: Failed dependencies:
+libmysqlclient.so.10 is needed by (installed) libdbi-dbd-mysql-0.6.5-10.RHEL4.1.i386
+libmysqlclient.so.10 is needed by (installed) MySQL-python-1.0.0-1.RHEL4.1.i386
+libmysqlclient.so.10 is needed by (installed) MyODBC-2.50.39-21.RHEL4.1.i386
+libmysqlclient.so.10 is needed by (installed) qt-MySQL-3.3.3-9.3.i386
+mysqlclient10 is needed by (installed) MySQL-python-1.0.0-1.RHEL4.1.i386
+mysqlclient10 = 3.23.58-4.RHEL4.1 is needed by (installed) mysqlclient10-devel-3.23.58-4.RHEL4.1.i386
+时，使用 --nodeps 参数，如：
+rpm -e mysqlclient10-devel-3.23.58-4.RHEL4.1 --nodeps
+rpm -e mysqlclient10-3.23.58-4.RHEL4.1 --nodeps
