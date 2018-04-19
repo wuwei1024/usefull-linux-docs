@@ -1,2 +1,2 @@
 # usefull-linux-docs
-常用的linux配置文件
+redis与nginx基本配置文件
