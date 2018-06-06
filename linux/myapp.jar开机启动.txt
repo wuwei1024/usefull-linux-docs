@@ -19,8 +19,8 @@ start() {
     if [ -n "$pids" ]; then
         echo  "$APP_NAME service already start"
     else
-	nohup /usr/bin/java -jar /root/myapp/myapp-0.0.1-SNAPSHOT.jar &
-    echo "$APP_NAME is succeessfully started up"
+	nohup /usr/bin/java -jar /root/myapp/myapp-0.0.1-SNAPSHOT.jar >/root/log/myapp.log &
+    	echo "$APP_NAME is succeessfully started up"
     fi
 }
 
